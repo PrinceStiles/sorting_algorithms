@@ -5,7 +5,6 @@
  * @a: The first integer to swap.
  * @b: The second integer to swap.
  */
-
 void swap_ints(int *a, int *b)
 {
 	int tmp;
@@ -26,20 +25,20 @@ void swap_ints(int *a, int *b)
 void selection_sort(int *array, size_t size)
 {
 	int *min;
-	size_t j, k;
+	size_t i, j;
 
 	if (array == NULL || size < 2)
 		return;
 
-	for (j = 0; j < size - 1; j++)
+	for (i = 0; i < size - 1; i++)
 	{
-		min = array + j;
-		for (k = j + 1; k < size; k++)
-			min = (array[k] < *min) ? (array + k) : min;
+		min = array + i;
+		for (j = i + 1; j < size; j++)
+			min = (array[j] < *min) ? (array + j) : min;
 
-		if ((array + j) != min)
+		if ((array + i) != min)
 		{
-			swap_ints(array + j, min);
+			swap_ints(array + i, min);
 			print_array(array, size);
 		}
 	}
